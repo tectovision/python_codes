@@ -12,7 +12,7 @@ from geodezyx.externlib import *         # Import the external modules
 from geodezyx.megalib.megalib import *   # Import the legacy modules names
 
 
-dire_res_sat = '/home/garcia/wrk_garcia/CASCADIA_NET_0/ANA/'
+dire_res_sat = '/home/garcia/wrk_garcia/CASCADIA_NET/ANA/'
 file=ga.find_txt_gen(dire_res_sat,recursive_search=True,severe=True,string ='08.06_solve_2_ambfix.log')
 filtered_file = [path for path in file if '/ITERA/' not in path]
 filtered_file = [path for path in filtered_file if '/FAIL/' not in path]
@@ -136,7 +136,7 @@ print(' the list of the days to repeat due ambiguities bugs is:',date_amb_stk_r)
 print(' rhe number of job to run will be: '+str(len(date_amb_stk_r)))
 #%%
 
-dire_res_sat = '/home/garcia/wrk_garcia/CASCADIA_NET_0/ANA/'
+dire_res_sat = '/home/garcia/wrk_garcia/CASCADIA_NET/ANA/'
 file=ga.find_txt_gen(dire_res_sat,recursive_search=True,severe=True,string ='08.13_clean_set_limits.log')
 filtered_file = [path for path in file if '/ITERA/' not in path]
 filtered_file = [path for path in filtered_file if '/FAIL/' not in path]
@@ -161,7 +161,7 @@ nuevas_filas_3 = []
 
 for yyyy_doy in residual_high_stk:
     #dire_res_sat = '/home/garcia/wrk_garcia/CASCADIA_NET_0/ANA/2015_009/PROT/'
-    dire_res_sat = '/home/garcia/wrk_garcia/CASCADIA_NET_0/ANA/'+yyyy_doy+'/PROT/'
+    dire_res_sat = '/home/garcia/wrk_garcia/CASCADIA_NET/ANA/'+yyyy_doy+'/PROT/'
     [res,t0,t1]=ga.ana_res_epos_itera(dire_res_sat)
     nf0 =' DEL'
     date = dire_res_sat[43:51]+'_0002'
@@ -176,7 +176,7 @@ for yyyy_doy in residual_high_stk:
 print(nuevas_filas_3)
 
 #%%  to update the CLN FILE based on ambiguities issues based on new_rows
-input_file_path = "/home/garcia/wrk_garcia/CONTROL/CNT_CASCADIA_NET_0/CLN_GLOBAL_CASCADIA_082223_231209_161715"
+input_file_path = "/home/garcia/wrk_garcia/CONTROL/CNT_CASCADIA_NET/CLN_GLOBAL_CASCADIA_082223_231209_161715"
 #ga.edit_cln_epos(new_rows_cln, input_file_path)
 #ga.edit_cln_epos(nuevas_filas_2, input_file_path)
 ga.edit_cln_epos(nuevas_filas_3, input_file_path)
@@ -364,7 +364,7 @@ import subprocess
 import pandas as pd
 # Especifica el directorio que deseas listar
 directorio = dir_path_ana
-ruta_archivo = "/home/garcia/wrk_garcia/CASCADIA_NET_0/status_processing"
+ruta_archivo = "/home/garcia/wrk_garcia/CASCADIA_NET/status_processing"
 
 # Ejecuta el comando ls -lh y redirige la salida a un archivo CSV
 comando = f"ls -lh {directorio} | awk '{{print $5 \",\" $9}}' > {ruta_archivo}"
